@@ -2,8 +2,8 @@ const mobileSchema = require('../models')
 var jwt = require('jsonwebtoken');
 
 //twillo configuration keys
-const accountSid = "ACa240d3977cc6906e93beb3d7f76e3708";
-const authToken = "3ad7ed8ba160e5cb28b33247b3dcd685";
+const accountSid = 'AC96113bcea14f4a9ce5d4226d69e1c98c';
+const authToken = 'bd5d561e99a7b1617418aff51d8e8fbb';
 const client = require('twilio')(accountSid, authToken);
 
 //here is the encryption token key
@@ -32,11 +32,11 @@ exports.sendOTP = async (request, response) => {
         // //SMS sending code
         client.messages.create({
             body: `Hey! OTP your 4 digit verification code is ${val}`,
-            from: '+16073502616', //message sender phone no.
+            from: '+16206590396', //message sender phone no.
             to: `+91${request.body.phone}` // message receiver phone no. from request payload
         })
             .then(() => {
-                console.log("Your OTP is ",val)
+                console.log("Your OTP is ", val)
 
                 //here we are sending the response in json format with success message
                 return response.json({
